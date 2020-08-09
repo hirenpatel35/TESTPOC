@@ -23,11 +23,21 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Check Spelling (JS, Vue, HTML, Markdown, Text) [Forked][wordlist + spellcheck freedom]
+      if: always()  
       uses: nickssmith/spellcheck-github-actions@1.0
+    
+    - name: Check Spelling (JS, Vue, HTML, Markdown, Text) [Forked][wordlist + spellcheck freedom] [SFL]
+      if: always()  
+      uses: SFLScientific/spellcheck-github-actions@1.0
+    
+    - name: GitHub Spellcheck Action
+      if: always()  
+      uses: rojopolis/spellcheck-github-actions@0.5.0
     
      
      
     - name: simple-cspell
+      if: always()  
       uses: zwaldowski/cspell-action@1.0.0
       with:
         # Glob pattern of files to check
@@ -40,7 +50,7 @@ jobs:
         unique: true # optional
           
     - name: Check spelling
-      if: ${{ always() }}
+      if: always()  
       uses: check-spelling/check-spelling@0.0.16-alpha
       #with:
         # The GITHUB_TOKEN secret
