@@ -22,10 +22,8 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: GitHub Spellcheck Action
-      uses: rojopolis/spellcheck-github-actions@0.5.0
-      with:
-        name: 'Spellcheck'
+    - name: Check Spelling (JS, Vue, HTML, Markdown, Text)
+      uses: UnicornGlobal/spellcheck-github-actions@0.4.0
      
      
     - name: simple-cspell
