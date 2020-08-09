@@ -35,6 +35,7 @@ jobs:
         unique: true # optional
           
     - name: Check spelling
+      if: ${{ always() }}
       uses: check-spelling/check-spelling@0.0.16-alpha
       #with:
         # The GITHUB_TOKEN secret
