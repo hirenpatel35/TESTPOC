@@ -22,36 +22,28 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: Run PySpelling as a GitHub action
-      if: always()  
-      uses: sbates130272/spellcheck-github-actions@v0.7.0
-    
-    - name: Check Spelling (JS, Vue, HTML, Markdown, Text) [Forked][wordlist + spellcheck freedom]
-      if: always()  
-      uses: nickssmith/spellcheck-github-actions@1.0
-    
-    - name: Check Spelling (JS, Vue, HTML, Markdown, Text) [Forked][wordlist + spellcheck freedom] [SFL]
-      if: always()  
-      uses: SFLScientific/spellcheck-github-actions@1.0
-    
-    - name: GitHub Spellcheck Action
-      if: always()  
-      uses: rojopolis/spellcheck-github-actions@0.5.0
+    - name: get changed files
+      id: getfile
+      run: |
+        echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs)"
+    - name: echo output
+      run: |
+        echo ${{ steps.getfile.outputs.files }}
     
      
      
-    - name: simple-cspell
-      if: always()  
-      uses: zwaldowski/cspell-action@1.0.0
-      with:
+    #- name: simple-cspell
+     # if: always()  
+      #uses: zwaldowski/cspell-action@1.0.0
+      #with:
         # Glob pattern of files to check
-        paths: "**/*.{md,js}"
+        #paths: "**/*.{md,js}"
         # Configuration file to use. By default cspell looks for cspell.json in the current directory.
         #config: # optional
         # Exclude files matching the glob pattern
         #exclude: # optional
         # Only output the first instance of a word not found in the dictionaries.
-        unique: true # optional
+        #unique: true # optional
           
     #- name: Check spelling
       #if: always()  
