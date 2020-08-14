@@ -49,7 +49,7 @@ jobs:
         # Debug mode
         #debug: # optional
         # Exclude files or directories
-        exclude: ${{ steps.getDirName.outputs.dirs }}/** # optional
+        exclude: 'Project/Data' # optional
         # Command line parameters for fd command. "exclude" and "search_paths" parameters are ignored if this is set
         #fd_cmd_params: # optional
         # Quiet mode for markdown-link-check
