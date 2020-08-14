@@ -31,6 +31,7 @@ jobs:
     - name: echo output
       run: |
         echo ${{ steps.getfile.outputs.files }}
+        echo $(dirname ${{ steps.getfile.outputs.files }})
     
      
      
