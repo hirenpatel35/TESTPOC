@@ -51,11 +51,11 @@ jobs:
         # Debug mode
         #debug: # optional
         # Exclude files or directories
-        exclude: | 
-                Project
-                Demo # optional
+        #exclude: | 
+         #       Project
+         #       Demo # optional
         # Command line parameters for fd command. "exclude" and "search_paths" parameters are ignored if this is set
-        #fd_cmd_params: # optional
+        fd_cmd_params: fd . -0 --extension md --type f --hidden --no-ignore --exclude ./** # optional
         # Quiet mode for markdown-link-check
         #quiet: # optional
         # Set paths which should be recursively scanned for markdown files (*.md) and linted. By default all "*.md" files are checked
@@ -72,11 +72,12 @@ jobs:
         # Debug mode
         #debug: # optional
         # Exclude files or directories
-        exclude: |
-                Project
-                Demo # optional
+        #exclude: |
+        #        Project
+        #        Demo # optional
         # Command line parameters for fd command. "exclude" and "search_paths" parameters are ignored if this is set
-        #fd_cmd_params: # optional
+        fd_cmd_params: fd . -0 --extension md --type f --hidden --no-ignore --exclude ./**
+        # optional
         # Set paths which should be recursively scanned for markdown files (*.md) and linted. By default all "*.md" files are checked
         search_paths: ${{ steps.getDirName.outputs.dirs }} # optional
      
