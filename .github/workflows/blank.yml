@@ -38,7 +38,7 @@ jobs:
     - name: echo output
       run: |
         echo ${{ steps.getfile.outputs.files }}
-        echo ${{ steps.getDirName.outputs.dirs }}.
+        echo ${{ steps.getDirName.outputs.dirs }}
     
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
